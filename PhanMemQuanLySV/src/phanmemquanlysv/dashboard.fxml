@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="phanmemquanlysv.DashboardController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="100.0" layoutY="83.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="94.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="330.0" layoutY="29.0" text="Phần Mềm Quản Lý Sinh Viên ">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <FontAwesomeIcon glyphName="USER" layoutX="26.0" layoutY="77.0" size="7em" />
+                        <Button fx:id="thoat" layoutX="962.0" layoutY="14.0" mnemonicParsing="false" onAction="#thoat" text="X" />
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="506.0" prefWidth="119.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="btn_thongtin" layoutX="14.0" layoutY="32.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="92.0" text="Thông tin SV" />
+                        <Button fx:id="btn_monhoc" layoutX="14.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="92.0" text="Môn học" />
+                        <Button fx:id="btn_nhapdiem" layoutX="14.0" layoutY="115.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="92.0" text="Nhập điểm" />
+                        <Button fx:id="btn_dangxuat" layoutX="14.0" layoutY="466.0" mnemonicParsing="false" onAction="#dangxuat" text="Đăng xuất" />
+                        <Button fx:id="btn_dangkyhoc" layoutX="14.0" layoutY="157.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="30.0" prefWidth="92.0" text="Đăng ký học" />
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <AnchorPane fx:id="view1" prefHeight="200.0" prefWidth="200.0" visible="false" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="11.0" layoutY="53.0" prefHeight="240.0" prefWidth="858.0">
+                           <children>
+                              <TableView fx:id="view1_table" layoutY="14.0" onMouseClicked="#addStudentsSelect" prefHeight="240.0" prefWidth="858.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="view1_table_mssv" prefWidth="104.7999906539917" text="MSSV" />
+                                    <TableColumn fx:id="view1_table_name" minWidth="9.60003662109375" prefWidth="205.59994506835938" text="Họ và tên " />
+                                    <TableColumn fx:id="view1_table_svnam" prefWidth="73.5999755859375" text="SVNăm" />
+                                    <TableColumn fx:id="view1_table_gender" prefWidth="82.4000244140625" text="Giới tính " />
+                                    <TableColumn fx:id="view1_table_khoa" prefWidth="169.5999755859375" text="khoa" />
+                                    <TableColumn fx:id="view1_table_diem" prefWidth="112.0" text="Thang điểm 10" />
+                                    <TableColumn fx:id="view1_table_status" prefWidth="105.5999755859375" text="Trạng thái" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <TextField fx:id="view1_search" layoutX="42.0" layoutY="19.0" onKeyTyped="#addStudentsSearch" prefHeight="26.0" prefWidth="219.0" promptText="Tìm kiếm" />
+                        <FontAwesomeIcon glyphName="SEARCH" layoutX="22.0" layoutY="37.0" />
+                        <Label layoutX="42.0" layoutY="312.0" prefHeight="30.0" prefWidth="90.0" text="Họ và tên: " />
+                        <Label layoutX="42.0" layoutY="350.0" prefHeight="30.0" prefWidth="90.0" text="MSSV:" />
+                        <Label layoutX="395.0" layoutY="350.0" prefHeight="30.0" prefWidth="90.0" text="Sinh viên năm:" />
+                        <TextField fx:id="view1_txt_name" layoutX="132.0" layoutY="312.0" prefHeight="30.0" prefWidth="200.0" />
+                        <TextField fx:id="view1_txt_mssv" layoutX="132.0" layoutY="350.0" prefHeight="30.0" prefWidth="200.0" />
+                        <Label layoutX="395.0" layoutY="312.0" prefHeight="30.0" prefWidth="90.0" text="Giới tính:" />
+                        <Label layoutX="42.0" layoutY="388.0" prefHeight="30.0" prefWidth="90.0" text="Khoa:" />
+                        <Label layoutX="395.0" layoutY="388.0" prefHeight="30.0" prefWidth="90.0" text="Thang điểm 10:" />
+                        <TextField fx:id="view1_txt_khoa" layoutX="132.0" layoutY="388.0" prefHeight="30.0" prefWidth="200.0" />
+                        <TextField fx:id="view1_txt_diem" layoutX="485.0" layoutY="388.0" prefHeight="30.0" prefWidth="122.0" />
+                        <ComboBox layoutX="530.0" layoutY="312.0" prefHeight="30.0" prefWidth="77.0" />
+                        <ComboBox fx:id="view1_txt_gender" layoutX="485.0" layoutY="312.0" onAction="#addStudentsGenderList" prefHeight="30.0" prefWidth="122.0" />
+                        <Label layoutX="42.0" layoutY="429.0" prefHeight="30.0" prefWidth="90.0" text="Ngày sinh:" />
+                        <DatePicker fx:id="view1_txt_date" layoutX="132.0" layoutY="429.0" prefHeight="30.0" prefWidth="200.0" />
+                        <Label layoutX="395.0" layoutY="429.0" prefHeight="30.0" prefWidth="90.0" text="Trạng thái:" />
+                        <ComboBox fx:id="view1_txt_status" layoutX="485.0" layoutY="429.0" onAction="#addStudentsStatusList" prefHeight="30.0" prefWidth="122.0" />
+                        <ComboBox fx:id="view1_txt_svnam" layoutX="485.0" layoutY="350.0" onAction="#addStudentsYearList" prefHeight="30.0" prefWidth="122.0" />
+                        <Button fx:id="view1_btn_them" layoutX="657.0" layoutY="330.0" mnemonicParsing="false" onAction="#addStudentsAdd" prefHeight="40.0" prefWidth="90.0" text="Thêm" />
+                        <Button fx:id="view1_btn_sua" layoutX="766.0" layoutY="330.0" mnemonicParsing="false" onAction="#addStudentsUpdate" prefHeight="40.0" prefWidth="90.0" text="Sửa" />
+                        <Button fx:id="view1_btn_xoa" layoutX="657.0" layoutY="398.0" mnemonicParsing="false" onAction="#addStudentsDelete" prefHeight="40.0" prefWidth="90.0" text="Xóa" />
+                        <Button fx:id="view1_btn_dondep" layoutX="766.0" layoutY="398.0" mnemonicParsing="false" onAction="#addStudentsClear" prefHeight="40.0" prefWidth="90.0" text="Dọn dẹp" />
+                     </children>
+                  </AnchorPane>
+                     <AnchorPane fx:id="view2" layoutX="24.0" layoutY="22.0" prefHeight="505.6" prefWidth="880.8" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <children>
+                           <AnchorPane layoutX="14.0" layoutY="13.0" prefHeight="480.0" prefWidth="250.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+                              <children>
+                                 <Label layoutX="14.0" layoutY="70.0" prefHeight="30.0" prefWidth="58.0" text="Môn học: " />
+                                 <Label layoutX="14.0" layoutY="156.0" prefHeight="30.0" prefWidth="58.0" text="Mô tả:" />
+                                 <Label layoutX="14.0" layoutY="116.0" prefHeight="30.0" prefWidth="58.0" text="Số lớp" />
+                                 <TextField fx:id="view2_txt_monhoc" layoutX="73.0" layoutY="70.0" prefHeight="30.0" />
+                                 <TextField fx:id="view2_txt_solop" layoutX="73.0" layoutY="116.0" prefHeight="30.0" />
+                                 <TextArea fx:id="view2_txt_mota" layoutX="72.0" layoutY="171.0" prefHeight="98.0" prefWidth="151.0" />
+                                 <Button fx:id="view2_btn_them" layoutX="32.0" layoutY="331.0" mnemonicParsing="false" onAction="#availableCourseAdd" prefHeight="35.0" prefWidth="80.0" text="Thêm " />
+                                 <Button fx:id="view2_btn_sua" layoutX="143.0" layoutY="331.0" mnemonicParsing="false" onAction="#availableCourseUpdate" prefHeight="35.0" prefWidth="80.0" text="Sửa" />
+                                 <Button fx:id="view2_btn_xoa" layoutX="32.0" layoutY="389.0" mnemonicParsing="false" onAction="#availableCourseDelete" prefHeight="35.0" prefWidth="80.0" text="Xóa" />
+                                 <Button fx:id="view2_btn_dondep" layoutX="143.0" layoutY="389.0" mnemonicParsing="false" onAction="#availableCourseClear" prefHeight="35.0" prefWidth="80.0" text="Dọn dẹp" />
+                                 <Label layoutX="-3.0" layoutY="31.0" prefHeight="30.0" prefWidth="69.0" text="Mã môn học:" />
+                                 <TextField fx:id="view2_txt_mamonhoc" layoutX="73.0" layoutY="31.0" prefHeight="30.0" />
+                              </children>
+                           </AnchorPane>
+                           <AnchorPane layoutX="341.0" layoutY="12.0" prefHeight="486.0" prefWidth="0.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                              <children>
+                                 <TableView fx:id="view2_table" layoutX="14.0" layoutY="14.0" onMouseClicked="#availableCourseSelect" prefHeight="475.6" prefWidth="600.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                   <columns>
+                                     <TableColumn fx:id="view2_table_mamonhoc" prefWidth="145.5999755859375" text="Mã môn học " />
+                                     <TableColumn fx:id="view2_table_monhoc" prefWidth="160.79998779296875" text="Môn học " />
+                                       <TableColumn fx:id="view2_table_solop" prefWidth="77.5999755859375" text="Số lớp " />
+                                       <TableColumn fx:id="view2_table_mota" prefWidth="216.7999267578125" text="Mô tả" />
+                                   </columns>
+                                 </TableView>
+                              </children>
+                           </AnchorPane>
+                        </children>
+                     </AnchorPane>
+                     <AnchorPane fx:id="view3" prefHeight="505.6" prefWidth="880.8" visible="false">
+                        <children>
+                           <AnchorPane layoutX="14.0" layoutY="13.0" prefHeight="480.0" prefWidth="250.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+                              <children>
+                                 <Label layoutX="14.0" layoutY="33.0" prefHeight="30.0" prefWidth="58.0" text="MSSV" />
+                                 <Label layoutX="14.0" layoutY="129.0" prefHeight="30.0" prefWidth="58.0" text="Điểm" />
+                                 <Label layoutX="14.0" layoutY="81.0" prefHeight="30.0" prefWidth="58.0" text="Môn học" />
+                                 <Button fx:id="view3_btn_them" layoutX="32.0" layoutY="269.0" mnemonicParsing="false" onAction="#availableScoreAdd" prefHeight="35.0" prefWidth="80.0" text="Thêm " />
+                                 <Button fx:id="view3_btn_sua" layoutX="143.0" layoutY="269.0" mnemonicParsing="false" onAction="#availableScoreUpdate" prefHeight="35.0" prefWidth="80.0" text="Sửa" />
+                                 <Button fx:id="view3_btn_xoa" layoutX="32.0" layoutY="326.0" mnemonicParsing="false" onAction="#deleteStudentHandle" prefHeight="35.0" prefWidth="80.0" text="Xóa" />
+                                 <Button fx:id="view3_btn_dondep" layoutX="143.0" layoutY="326.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="80.0" text="Dọn dẹp" />
+                                 <TextField fx:id="view3_txt_diem" layoutX="73.0" layoutY="129.0" prefHeight="30.0" />
+                                 <ComboBox fx:id="view3_txt_monhoc" layoutX="73.0" layoutY="84.0" onAction="#addStudentsCourseList" prefHeight="30.0" prefWidth="150.0" />
+                                 <ComboBox fx:id="view3_txt_mssv" layoutX="72.0" layoutY="33.0" onAction="#addStudentsMSSVList" prefHeight="30.0" prefWidth="150.0" />
+                              </children>
+                           </AnchorPane>
+                           <AnchorPane layoutX="341.0" layoutY="12.0" prefHeight="486.0" prefWidth="0.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                              <children>
+                                 <TableView fx:id="view3_table" layoutX="14.0" layoutY="14.0" prefHeight="475.6" prefWidth="600.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                       <TableColumn fx:id="view3_table_mssv" prefWidth="102.4000244140625" text="MSSV" />
+                                       <TableColumn fx:id="view3_table_name" prefWidth="218.39996337890625" text="Họ và tên" />
+                                       <TableColumn fx:id="view3_table_monhoc" prefWidth="193.60003662109375" text="Môn học" />
+                                       <TableColumn fx:id="view3_table_diem" maxWidth="215.20002441406245" prefWidth="92.0" text="Điểm" />
+                                    </columns>
+                                 </TableView>
+                              </children>
+                           </AnchorPane>
+                        </children>
+                     </AnchorPane>
+                     <AnchorPane fx:id="view4" prefHeight="505.6" prefWidth="880.8">
+                        <children>
+                           <AnchorPane layoutX="14.0" layoutY="13.0" prefHeight="480.0" prefWidth="250.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+                              <children>
+                                 <Label layoutX="14.0" layoutY="33.0" prefHeight="30.0" prefWidth="58.0" text="MSSV" />
+                                 <Label layoutX="14.0" layoutY="81.0" prefHeight="30.0" prefWidth="58.0" text="Môn học" />
+                                 <Button fx:id="view4_btn_dangky" layoutX="32.0" layoutY="326.0" mnemonicParsing="false" onAction="#addSubjecthandle" prefHeight="35.0" prefWidth="80.0" text="Đăng ký" />
+                                 <Button fx:id="view4_btn_huy" layoutX="143.0" layoutY="326.0" mnemonicParsing="false" onAction="#cancelSubjectHandle" prefHeight="35.0" prefWidth="80.0" text="Hủy" />
+                                 <ComboBox fx:id="view4_txt_mssv" layoutX="68.0" layoutY="36.0" onAction="#addStudentsMSSVList2" prefHeight="30.0" prefWidth="150.0" />
+                                 <ComboBox fx:id="view4_txt_mamonhoc" layoutX="68.0" layoutY="84.0" onAction="#addStudentsCourseList2" prefHeight="30.0" prefWidth="150.0" />
+                              </children>
+                           </AnchorPane>
+                           <AnchorPane layoutX="341.0" layoutY="12.0" prefHeight="486.0" prefWidth="0.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="265.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                              <children>
+                                 <TableView fx:id="view4_table" layoutX="14.0" layoutY="14.0" prefHeight="475.6" prefWidth="600.8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                       <TableColumn fx:id="view4_table_mssv" prefWidth="129.60003662109375" text="MSSV" />
+                                       <TableColumn fx:id="view4_table_name" prefWidth="228.7999267578125" text="Họ và tên" />
+                                       <TableColumn fx:id="view4_table_mamonhoc" prefWidth="240.0" text="Môn học đăng ký" />
+                                    </columns>
+                                 </TableView>
+                              </children>
+                           </AnchorPane>
+                        </children>
+                     </AnchorPane>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
